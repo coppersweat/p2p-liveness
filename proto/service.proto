@@ -1,0 +1,14 @@
+syntax = "proto3";
+package liveness;
+
+message Request {
+  repeated string multiaddresses = 1;
+}
+
+message Response {
+  string pingmessage = 1;
+}
+
+service Liveness {
+  rpc GetNodesLiveness(Request) returns (stream Response) {}
+}
